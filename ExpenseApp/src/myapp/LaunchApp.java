@@ -14,6 +14,11 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class LaunchApp {
 	public static void main(String[] args) {
 		
+		
+		/**
+		 * Setting up system look and feel
+		 * @throws UnsupportedLookAndFeelException
+		 */
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
