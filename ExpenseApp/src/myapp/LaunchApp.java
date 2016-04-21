@@ -1,6 +1,8 @@
 package myapp;
 
 import myapp.gui.MainWindow;
+
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -11,27 +13,21 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class LaunchApp {
 	public static void main(String[] args) {
-		
-		
-		/**
-		 * Setting up system look and feel
-		 * @throws UnsupportedLookAndFeelException
-		 */
+		setupSystemLookAndFeel();
+		MainWindow mainWindow = new MainWindow();
+		mainWindow.buildGUI();
+	}
+	/**
+	 * Setting up system look and feel
+	 * @throws UnsupportedLookAndFeelException
+	 */
+	private static void setupSystemLookAndFeel() {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-				| UnsupportedLookAndFeelException e1) {
-			e1.printStackTrace();
+				| UnsupportedLookAndFeelException e) {
+			JOptionPane.showMessageDialog(null, "Error", e.getMessage(), JOptionPane.ERROR_MESSAGE);
 		}
-		
-		MainWindow mainWindow = new MainWindow();
-		mainWindow.buildGUI();
-		
-		//MyPanel mainPanel = new MyPanel();
-		//JFrame mainWindow = new JFrame("Expense Report");
-		//mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//mainWindow.getContentPane().add(mainPanel);
-		//mainWindow.setSize(800, 600);
-		//mainWindow.setVisible(true);
 	}
+	
 }
