@@ -202,10 +202,6 @@ public final class MainWindow {
 		}
 		
 	}
-	
-	
-	
-	
 	/**
 	 * Inner class to handle the event when any text box comes in focus
 	 * <p>It checks which text box is in focus and then selects all the text in it
