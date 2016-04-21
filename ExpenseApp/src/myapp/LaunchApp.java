@@ -12,6 +12,15 @@ import javax.swing.UnsupportedLookAndFeelException;
  * main GUI (JFrame)
  */
 public class LaunchApp {
+	
+	
+	
+	/**
+	 * There is no use for instantiating this class, so 
+	 * I made it private.
+	 */
+	private LaunchApp() {}
+		
 	public static void main(String[] args) {
 		setupSystemLookAndFeel();
 		MainWindow mainWindow = new MainWindow();
