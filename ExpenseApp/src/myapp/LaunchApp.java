@@ -1,8 +1,6 @@
 package myapp;
 
-import myapp.gui.MyPanel;
 import myapp.gui.MainWindow;
-import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
