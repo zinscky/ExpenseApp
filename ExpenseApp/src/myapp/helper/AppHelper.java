@@ -22,10 +22,6 @@ import myapp.constants.Constants;
 public class AppHelper {
 	//private User user;
 	
-	public AppHelper() {
-		
-	}
-	
 	private String getMonth(int month) {
 		return Constants.MONTHS[month];
 	}

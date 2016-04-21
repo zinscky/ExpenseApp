@@ -11,6 +11,7 @@ import java.awt.event.*;
 
 /**
  * @author Z.
+ * version 1.0
  *
  */
 public final class MainWindow {
@@ -40,19 +41,23 @@ public final class MainWindow {
 	private JPanel outputContainer; 
 	private JTextArea consoleArea;
 	private JScrollPane scrollPane;
-	
-	
+			
 	/**
 	 * <p>Builds the main frame window (JFrame) and calls buildToplevelContainer() to build the
 	 * rest.
 	 */
 	public void buildGUI() {
-		frame = new JFrame("Expense App");
+		frame = new JFrame(Constants.APP_NAME);
 		buildTopLevelContainer();
 		frame.getContentPane().add(topLevelContainer);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800,  600);
 		frame.setVisible(true);
+		
+		
+		ImageIcon img = new ImageIcon(Constants.GUI_PATH + "Rupee-48.png");
+		frame.setIconImage(img.getImage());
+		
 		registerListeners();
 		
 	}
@@ -160,15 +165,14 @@ public final class MainWindow {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == submit) {
-				//AppHelper helper = new AppHelper(personName.getText(),
-				//		itemName.getText(), itemCost.getText());
 				AppHelper helper = new AppHelper();
-				
 				if (helper.addRecord(personName.getText(),
 						itemName.getText(),
 						itemCost.getText(),
-						consoleArea))
+						consoleArea)) {
 					consoleArea.append("Record added to database...\n");
+					itemName.requestFocusInWindow();
+				}
 			}
 			if(e.getSource() == clear) {
 				itemName.setText("");
@@ -177,19 +181,23 @@ public final class MainWindow {
 				consoleArea.append("All items cleared...\n");
 			}
 			if(e.getSource() == exit) {
-				
+				frame.dispose();
+				System.exit(0);
 			}
 			if(e.getSource() == search) {
 				AppHelper helper = new AppHelper();
-				helper.search(months.getSelectedItem().toString(), year.getText(), consoleArea);
+				helper.search(months.getSelectedItem().toString(), 
+						year.getText(), consoleArea);
 			}
 			if(e.getSource() == calculate) {
 				AppHelper helper = new AppHelper();
-				helper.calculate(months.getSelectedItem().toString(), year.getText(), consoleArea);
+				helper.calculate(months.getSelectedItem().toString(), 
+						year.getText(), consoleArea);
 			}
 			if(e.getSource() == deleteFile) {
 				AppHelper helper = new AppHelper();
-				helper.deleteFile(months.getSelectedItem().toString(), year.getText(), consoleArea);
+				helper.deleteFile(months.getSelectedItem().toString(), 
+						year.getText(), consoleArea);
 			}
 		}
 		
