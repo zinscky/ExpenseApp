@@ -14,3 +14,6 @@ AT the end of the month we calculate who has paid how much and who owes who.
 The front end is in myapp.gui package and a few constants in myapp.constants 
 and the main calculation is in myapp.helper, it only has one class AppHelper.
 
+Also it creates a txt file in src/myapp/data folder. the format of file name is 
+<current month in caps string>-<current year>.txt 
+ex : APRIL-2016.txt
